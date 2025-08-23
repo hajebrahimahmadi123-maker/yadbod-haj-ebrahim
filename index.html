@@ -29,43 +29,109 @@
     .header-bg {
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
     }
+    .hero-section {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x600?text=حاج+ابراهیم+احمدی+هدر') no-repeat center center/cover;
+    }
+    /* Mobile-friendly navigation */
+    .nav-menu {
+      display: flex;
+    }
+    .nav-menu.hidden {
+      display: none;
+    }
+    @media (max-width: 640px) {
+      .nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        right: 0;
+        background: #1f1f1f;
+        width: 100%;
+        padding: 1rem;
+      }
+      .hamburger {
+        display: block;
+      }
+      .hero-section {
+        height: 60vh;
+      }
+      h2 {
+        font-size: 1.75rem;
+      }
+      .gallery-item img {
+        height: 200px;
+      }
+    }
+    @media (min-width: 641px) {
+      .hamburger {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
   <!-- Header -->
   <header class="header-bg p-4 sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-white">یادبود حاج ابراهیم احمدی</h1>
-      <nav>
-        <a href="#gallery" class="text-gray-300 hover:text-white mx-4">گالری تصاویر</a>
-        <a href="#audio" class="text-gray-300 hover:text-white mx-4">صدا</a>
-        <a href="#video" class="text-gray-300 hover:text-white mx-4">ویدیو</a>
-        <a href="#memories" class="text-gray-300 hover:text-white mx-4">خاطرات</a>
+      <h1 class="text-2xl sm:text-3xl font-bold text-white">یادبود حاج ابراهیم احمدی</h1>
+      <button class="hamburger text-white text-2xl focus:outline-none" onclick="toggleMenu()">☰</button>
+      <nav class="nav-menu hidden sm:flex">
+        <a href="#gallery" class="text-gray-300 hover:text-white mx-4 text-lg">گالری تصاویر</a>
+        <a href="#audio" class="text-gray-300 hover:text-white mx-4 text-lg">صدا</a>
+        <a href="#video" class="text-gray-300 hover:text-white mx-4 text-lg">ویدیو</a>
+        <a href="#memories" class="text-gray-300 hover:text-white mx-4 text-lg">خاطرات</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="h-96 flex items-center justify-center bg-gradient-to-br from-black to-gray-800">
-    <div class="text-center">
-      <h2 class="text-4xl font-bold text-white animate__fadeIn" data-gsap="fadeIn">به یاد حاج ابراهیم احمدی</h2>
-      <p class="text-lg text-gray-400 mt-4">بزرگ‌مردی که یادش همیشه در قلب ما زنده است</p>
+  <section class="hero-section h-[60vh] sm:h-96 flex items-center justify-center">
+    <div class="text-center px-4">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white animate__fadeIn" data-gsap="fadeIn">به یاد حاج ابراهیم احمدی</h2>
+      <p class="text-lg sm:text-xl text-gray-200 mt-4">بزرگ‌مردی که یادش همیشه در قلب ما زنده است</p>
     </div>
   </section>
 
   <!-- Gallery Section -->
   <section id="gallery" class="py-16 bg-gray-900">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-white mb-8">گالری تصاویر</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">گالری تصاویر</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div class="gallery-item" data-gsap="slideUp">
           <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+1" alt="تصویر 1" class="w-full h-64 object-cover rounded-lg">
         </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="0.2">
+        <div class="gallery-item" data-gsap="slideUp" data-delay="0.1">
           <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+2" alt="تصویر 2" class="w-full h-64 object-cover rounded-lg">
         </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="0.4">
+        <div class="gallery-item" data-gsap="slideUp" data-delay="0.2">
           <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+3" alt="تصویر 3" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        <div class="gallery-item" data-gsap="slideUp" data-delay="0.3">
+          <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+4" alt="تصویر 4" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        <div class="gallery-item" data-gsap="slideUp" data-delay="0.4">
+          <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+5" alt="تصویر 5" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        <div class="gallery-item" data-gsap="slideUp" data-delay="0.5">
+          <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+6" alt="تصویر 6" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        <div class="gallery-item" data-gsap="slideUp" data-delay="0.6">
+          <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+7" alt="تصویر 7" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        <div class="gallery-item" data-gsap="slideUp" data-delay="0.7">
+          <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+8" alt="تصویر 8" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        <div class="gallery-item" data-gsap="slideUp" data-delay="0.8">
+          <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+9" alt="تصویر 9" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        <div class="gallery-item" data-gsap="slideUp" data-delay="0.9">
+          <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+10" alt="تصویر 10" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        <div class="gallery-item" data-gsap="slideUp" data-delay="1.0">
+          <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+11" alt="تصویر 11" class="w-full h-64 object-cover rounded-lg">
+        </div>
+        <div class="gallery-item" data-gsap="slideUp" data-delay="1.1">
+          <img src="https://via.placeholder.com/400x300?text=حاج+ابراهیم+احمدی+12" alt="تصویر 12" class="w-full h-64 object-cover rounded-lg">
         </div>
       </div>
     </div>
@@ -74,17 +140,17 @@
   <!-- Audio Section -->
   <section id="audio" class="py-16 bg-black">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-white mb-8">صوت‌های یادبود</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">صوت‌های یادبود</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="audio-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn">
-          <h3 class="text-xl text-white mb-4">مداحی مراسم</h3>
+          <h3 class="text-xl sm:text-2xl text-white mb-4">مداحی مراسم</h3>
           <audio controls class="w-full">
             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
             مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
           </audio>
         </div>
         <div class="audio-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn" data-delay="0.3">
-          <h3 class="text-xl text-white mb-4">سخنرانی یادبود</h3>
+          <h3 class="text-xl sm:text-2xl text-white mb-4">سخنرانی یادبود</h3>
           <audio controls class="w-full">
             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
             مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
@@ -97,17 +163,17 @@
   <!-- Video Section -->
   <section id="video" class="py-16 bg-gray-900">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-white mb-8">ویدیوهای یادبود</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">ویدیوهای یادبود</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="video-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn">
-          <h3 class="text-xl text-white mb-4">مراسم یادبود</h3>
+          <h3 class="text-xl sm:text-2xl text-white mb-4">مراسم یادبود</h3>
           <video controls class="w-full h-64 rounded-lg">
             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
           </video>
         </div>
         <div class="video-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn" data-delay="0.3">
-          <h3 class="text-xl text-white mb-4">خاطرات حاج ابراهیم</h3>
+          <h3 class="text-xl sm:text-2xl text-white mb-4">خاطرات حاج ابراهیم</h3>
           <video controls class="w-full h-64 rounded-lg">
             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
@@ -120,13 +186,13 @@
   <!-- Memories Section -->
   <section id="memories" class="py-16 bg-black">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-white mb-8">خاطرات و پیام‌ها</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">خاطرات و پیام‌ها</h2>
       <div class="bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn">
-        <p class="text-gray-300 text-center">اینجا می‌توانید خاطرات و پیام‌های خود را برای حاج ابراهیم احمدی به اشتراک بگذارید.</p>
-        <form class="mt-6 flex flex-col items-center">
+        <p class="text-gray-300 text-center text-base sm:text-lg">اینجا می‌توانید خاطرات و پیام‌های خود را برای حاج ابراهیم احمدی به اشتراک بگذارید.</p>
+        <div class="mt-6 flex flex-col items-center">
           <textarea class="w-full max-w-lg p-4 rounded-lg bg-gray-700 text-white" rows="5" placeholder="خاطره یا پیام خود را بنویسید..."></textarea>
-          <button type="submit" class="mt-4 bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-200">ارسال</button>
-        </form>
+          <button type="button" class="mt-4 bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-200">ارسال</button>
+        </div>
       </div>
     </div>
   </section>
@@ -134,8 +200,8 @@
   <!-- Footer -->
   <footer class="bg-black bg-opacity-90 p-4">
     <div class="container mx-auto text-center text-gray-400">
-      <p>یاد و خاطره حاج ابراهیم احمدی گرامی باد</p>
-      <p>© 2025 یادبود حاج ابراهیم احمدی</p>
+      <p class="text-base sm:text-lg">یاد و خاطره حاج ابراهیم احمدی گرامی باد</p>
+      <p class="text-sm sm:text-base">© 2025 یادبود حاج ابراهیم احمدی</p>
     </div>
   </footer>
 
@@ -160,7 +226,7 @@
         delay: item.dataset.delay || 0,
         scrollTrigger: {
           trigger: item,
-          start: "top 80%"
+          start: "top 85%"
         }
       });
     });
@@ -174,10 +240,16 @@
         delay: item.dataset.delay || 0,
         scrollTrigger: {
           trigger: item,
-          start: "top 80%"
+          start: "top 85%"
         }
       });
     });
+
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+      const menu = document.querySelector('.nav-menu');
+      menu.classList.toggle('hidden');
+    }
   </script>
 </body>
 </html>
