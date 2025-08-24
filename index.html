@@ -17,6 +17,10 @@
     }
     .gallery-item img {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
     }
     .gallery-item img:hover {
       transform: scale(1.03);
@@ -32,7 +36,7 @@
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
     }
     .hero-section {
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1516724562728-afc824a36e84?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80') no-repeat center center/cover;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://i.postimg.cc/Hs0tNXyP/d135a224-45bc-4b3b-a514-72675dd1da14.png') no-repeat center center/cover;
     }
     .nav-menu {
       display: flex;
@@ -44,23 +48,25 @@
       .nav-menu {
         flex-direction: column;
         position: absolute;
-        top: 64px;
+        top: 100%;
         right: 0;
         background: #1f1f1f;
         width: 100%;
         padding: 1rem;
+        z-index: 100;
+      }
+      .nav-menu a {
+        margin: 0.5rem 0;
+        text-align: center;
       }
       .hamburger {
         display: block;
       }
       .hero-section {
-        height: 60vh;
+        height: 50vh;
       }
       h2 {
-        font-size: 2rem;
-      }
-      .gallery-item img {
-        height: 200px;
+        font-size: 1.8rem;
       }
     }
     @media (min-width: 641px) {
@@ -76,7 +82,7 @@
 <body class="min-h-screen flex flex-col">
   <!-- Header -->
   <header class="header-bg p-4 sticky top-0 z-50 shadow-lg">
-    <div class="container mx-auto flex justify-between items-center">
+    <div class="container mx-auto flex justify-between items-center relative">
       <h1 class="text-2xl sm:text-3xl font-bold text-white">یادبود حاج ابراهیم احمدی</h1>
       <button class="hamburger text-white text-2xl focus:outline-none" onclick="toggleMenu()">☰</button>
       <nav class="nav-menu hidden sm:flex">
@@ -89,65 +95,54 @@
   </header>
 
   <!-- Hero Section -->
-<section class="hero-section h-[60vh] sm:h-96 flex items-center justify-center" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://i.postimg.cc/Hs0tNXyP/d135a224-45bc-4b3b-a514-72675dd1da14.png') no-repeat center center/cover;">
-  <div class="text-center px-4">
-    <h2 class="text-3xl sm:text-4xl font-bold text-white" data-gsap="fadeIn">به یاد حاج ابراهیم احمدی</h2>
-    <p class="text-lg sm:text-xl text-gray-200 mt-4">بزرگ‌مردی که یادش همیشه در قلب ما زنده است</p>
-  </div>
-</section>
+  <section class="hero-section h-[50vh] sm:h-96 flex items-center justify-center">
+    <div class="text-center px-4">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white" data-gsap="fadeIn">به یاد حاج ابراهیم احمدی</h2>
+      <p class="text-lg sm:text-xl text-gray-200 mt-4">بزرگ‌مردی که یادش همیشه در قلب ما زنده است</p>
+    </div>
+  </section>
 
   <!-- Gallery Section -->
   <section id="gallery" class="py-16 bg-gray-900">
     <div class="container mx-auto px-4">
       <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">گالری تصاویر</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- تصویر 1 -->
+        <!-- تصاویر گالری -->
         <div class="gallery-item" data-gsap="slideUp">
-       <img src="https://i.postimg.cc/X79yHLdT/image-1.jpg" alt="توضیح عکس" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/X79yHLdT/image-1.jpg" alt="توضیح عکس" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 2 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.1">
-            <img src="https://i.postimg.cc/j2HdX8mc/image-2.jpg" alt="خاطره زیبا" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/j2HdX8mc/image-2.jpg" alt="خاطره زیبا" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 3 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.2">
-           <img src="https://i.postimg.cc/rpDVby7K/image-3.jpg" alt="خاطره به یاد ماندنی" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/rpDVby7K/image-3.jpg" alt="خاطره به یاد ماندنی" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 4 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.3">
-          <img src="https://i.postimg.cc/R02Sz5zG/image-4.jpg" alt="یادگاری زیبا" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/R02Sz5zG/image-4.jpg" alt="یادگاری زیبا" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 5 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.4">
-          <img src="https://i.postimg.cc/26vzkckY/image-6.jpg" alt="مراسم یادبود" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/26vzkckY/image-6.jpg" alt="مراسم یادبود" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 6 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.5">
-          <img src="https://i.postimg.cc/HWwpFhv4/image-8.jpg" alt="خاطرات شیرین" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/HWwpFhv4/image-8.jpg" alt="خاطرات شیرین" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 7 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.6">
-        <img src="https://i.postimg.cc/BbB4DjPw/image-7.jpg" alt="جمع خانوادگی" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/BbB4DjPw/image-7.jpg" alt="جمع خانوادگی" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 8 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.7">
-         <img src="https://i.postimg.cc/rwmM0FVQ/image-9.jpg" alt="لحظات خاص" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/rwmM0FVQ/image-9.jpg" alt="لحظات خاص" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 9 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.8">
-          <img src="https://i.postimg.cc/cLbZQy6Z/image-10.jpg" alt="یادبود ماندگار" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/cLbZQy6Z/image-10.jpg" alt="یادبود ماندگار" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 10 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.9">
-          <img src="https://i.postimg.cc/sXFrNYpN/image-11.jpg" alt="خاطره‌ای به یادماندنی" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/sXFrNYpN/image-11.jpg" alt="خاطره‌ای به یادماندنی" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 11 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="1.0">
-          <img src="https://i.postimg.cc/NFBwgQC8/image-12.jpg" alt="آخرین خاطره" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/NFBwgQC8/image-12.jpg" alt="آخرین خاطره" class="w-full rounded-lg">
         </div>
-        <!-- تصویر 12 -->
         <div class="gallery-item" data-gsap="slideUp" data-delay="1.1">
-          <img src="https://i.postimg.cc/K8RhcqfW/image-5.jpg" alt="مراسم یادبود" class="w-full h-64 object-cover rounded-lg">
+          <img src="https://i.postimg.cc/K8RhcqfW/image-5.jpg" alt="مراسم یادبود" class="w-full rounded-lg">
         </div>
       </div>
     </div>
@@ -177,23 +172,27 @@
   </section>
 
   <!-- Video Section -->
-<section id="video" class="py-16 bg-gray-900">
-  <div class="container mx-auto px-4">
-    <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">ویدیوهای یادبود</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="video-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn">
-        <h3 class="text-xl sm:text-2xl text-white mb-4">مراسم یادبود</h3>
-        <video controls class="w-full h-64 rounded-lg">
-          <source src="https://drive.google.com/uc?export=download&id=1MKOEG0j4W_NOv1bhipZLi3C6djr8g_Ii" type="video/mp4">
-          مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-        </video>
+  <section id="video" class="py-16 bg-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">ویدیوهای یادبود</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="video-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn">
+          <h3 class="text-xl sm:text-2xl text-white mb-4">مراسم یادبود</h3>
+          <div class="aspect-w-16 aspect-h-9">
+            <video controls class="w-full rounded-lg">
+              <source src="https://drive.google.com/uc?export=download&id=1MKOEG0j4W_NOv1bhipZLi3C6djr8g_Ii" type="video/mp4">
+              مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+            </video>
+          </div>
         </div>
         <div class="video-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn" data-delay="0.3">
           <h3 class="text-xl sm:text-2xl text-white mb-4">خاطرات حاج ابراهیم</h3>
-          <video controls class="w-full h-64 rounded-lg">
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-          </video>
+          <div class="aspect-w-16 aspect-h-9">
+            <video controls class="w-full rounded-lg">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+              مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+            </video>
+          </div>
         </div>
       </div>
     </div>
@@ -266,14 +265,15 @@
       const menu = document.querySelector('.nav-menu');
       menu.classList.toggle('hidden');
     }
+
+    // بستن منو هنگام کلیک روی لینک‌ها در حالت موبایل
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 641) {
+          toggleMenu();
+        }
+      });
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
