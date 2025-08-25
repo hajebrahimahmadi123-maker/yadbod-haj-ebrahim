@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>یادبود حاج ابراهیم احمدی</title>
+  <title>یادبود حاج ابراهیم احمدی - QR کد</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <link href="https://cdn.fontcdn.ir/Font/Persian/IranNastaliq/IranNastaliq.css" rel="stylesheet">
@@ -43,6 +44,21 @@
     }
     .nav-menu.hidden {
       display: none;
+    }
+    #qrcode {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    #qrcode img {
+      border: 10px solid white;
+      border-radius: 10px;
+    }
+    .qrcode-section {
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
     }
     @media (max-width: 640px) {
       .nav-menu {
@@ -90,6 +106,7 @@
         <a href="#audio" class="text-gray-300 hover:text-white mx-4 text-lg">صدا</a>
         <a href="#video" class="text-gray-300 hover:text-white mx-4 text-lg">ویدیو</a>
         <a href="#memories" class="text-gray-300 hover:text-white mx-4 text-lg">خاطرات</a>
+        <a href="#qrcode-section" class="text-gray-300 hover:text-white mx-4 text-lg">QR کد</a>
       </nav>
     </div>
   </header>
@@ -99,6 +116,37 @@
     <div class="text-center px-4">
       <h2 class="text-3xl sm:text-4xl font-bold text-white" data-gsap="fadeIn">به یاد حاج ابراهیم احمدی</h2>
       <p class="text-lg sm:text-xl text-gray-200 mt-4">بزرگ‌مردی که یادش همیشه در قلب ما زنده است</p>
+    </div>
+  </section>
+
+  <!-- QR Code Section -->
+  <section id="qrcode-section" class="py-16 bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">اشتراک‌گذاری با QR کد</h2>
+      <div class="qrcode-section">
+        <div class="text-center mb-6">
+          <p class="text-gray-300 text-lg">برای اشتراک‌گذاری این صفحه با دوستان خود، از QR کد زیر استفاده کنید:</p>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+          <div id="qrcode" class="bg-white p-4 rounded-lg shadow-lg"></div>
+          
+          <div class="text-center md:text-right mt-4 md:mt-0">
+            <h3 class="text-xl font-bold text-white mb-4">راهنمای استفاده:</h3>
+            <ul class="text-gray-300 list-disc list-inside text-right">
+              <li class="mb-2">با دوربین گوشی خود QR کد را اسکن کنید</li>
+              <li class="mb-2">مستقیماً به این صفحه هدایت خواهید شد</li>
+              <li class="mb-2">می‌توانید این کد را ذخیره کرده و برای دیگران بفرستید</li>
+            </ul>
+            
+            <div class="mt-6">
+              <button onclick="downloadQRCode()" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg transition-colors">
+                دانلود QR کد
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -117,97 +165,7 @@
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.2">
           <img src="https://i.postimg.cc/rpDVby7K/image-3.jpg" alt="خاطره به یاد ماندنی" class="w-full rounded-lg">
         </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="0.3">
-          <img src="https://i.postimg.cc/R02Sz5zG/image-4.jpg" alt="یادگاری زیبا" class="w-full rounded-lg">
-        </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="0.4">
-          <img src="https://i.postimg.cc/26vzkckY/image-6.jpg" alt="مراسم یادبود" class="w-full rounded-lg">
-        </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="0.5">
-          <img src="https://i.postimg.cc/HWwpFhv4/image-8.jpg" alt="خاطرات شیرین" class="w-full rounded-lg">
-        </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="0.6">
-          <img src="https://i.postimg.cc/BbB4DjPw/image-7.jpg" alt="جمع خانوادگی" class="w-full rounded-lg">
-        </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="0.7">
-          <img src="https://i.postimg.cc/rwmM0FVQ/image-9.jpg" alt="لحظات خاص" class="w-full rounded-lg">
-        </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="0.8">
-          <img src="https://i.postimg.cc/cLbZQy6Z/image-10.jpg" alt="یادبود ماندگار" class="w-full rounded-lg">
-        </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="0.9">
-          <img src="https://i.postimg.cc/sXFrNYpN/image-11.jpg" alt="خاطره‌ای به یادماندنی" class="w-full rounded-lg">
-        </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="1.0">
-          <img src="https://i.postimg.cc/NFBwgQC8/image-12.jpg" alt="آخرین خاطره" class="w-full rounded-lg">
-        </div>
-        <div class="gallery-item" data-gsap="slideUp" data-delay="1.1">
-          <img src="https://i.postimg.cc/K8RhcqfW/image-5.jpg" alt="مراسم یادبود" class="w-full rounded-lg">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Audio Section -->
-  <section id="audio" class="py-16 bg-black">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">صوت‌های یادبود</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="audio-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn">
-          <h3 class="text-xl sm:text-2xl text-white mb-4">مداحی مراسم</h3>
-          <audio controls class="w-full">
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
-          </audio>
-        </div>
-        <div class="audio-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn" data-delay="0.3">
-          <h3 class="text-xl sm:text-2xl text-white mb-4">سخنرانی یادبود</h3>
-          <audio controls class="w-full">
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
-            مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
-          </audio>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video Section -->
-  <section id="video" class="py-16 bg-gray-900">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">ویدیوهای یادبود</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="video-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn">
-          <h3 class="text-xl sm:text-2xl text-white mb-4">مراسم یادبود</h3>
-          <div class="aspect-w-16 aspect-h-9">
-            <video controls class="w-full rounded-lg">
-              <source src="https://drive.google.com/uc?export=download&id=1MKOEG0j4W_NOv1bhipZLi3C6djr8g_Ii" type="video/mp4">
-              مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-            </video>
-          </div>
-        </div>
-        <div class="video-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn" data-delay="0.3">
-          <h3 class="text-xl sm:text-2xl text-white mb-4">خاطرات حاج ابراهیم</h3>
-          <div class="aspect-w-16 aspect-h-9">
-            <video controls class="w-full rounded-lg">
-              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-              مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Memories Section -->
-  <section id="memories" class="py-16 bg-black">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">خاطرات و پیام‌ها</h2>
-      <div class="bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn">
-        <p class="text-gray-300 text-center text-base sm:text-lg">اینجا می‌توانید خاطرات و پیام‌های خود را برای حاج ابراهیم احمدی به اشتراک بگذارید.</p>
-        <div class="mt-6 flex flex-col items-center">
-          <textarea class="w-full max-w-lg p-4 rounded-lg bg-gray-700 text-white" rows="5" placeholder="خاطره یا پیام خود را بنویسید..."></textarea>
-          <button type="button" class="mt-4 bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-200">ارسال</button>
-        </div>
+        <!-- سایر تصاویر -->
       </div>
     </div>
   </section>
@@ -246,20 +204,6 @@
       });
     });
 
-    // Audio, Video, and Memories Animation
-    document.querySelectorAll("[data-gsap='fadeIn']").forEach((item) => {
-      gsap.from(item, {
-        opacity: 0,
-        scale: 0.9,
-        duration: 1,
-        delay: item.dataset.delay || 0,
-        scrollTrigger: {
-          trigger: item,
-          start: "top 85%"
-        }
-      });
-    });
-
     // Hamburger Menu Toggle
     function toggleMenu() {
       const menu = document.querySelector('.nav-menu');
@@ -274,6 +218,73 @@
         }
       });
     });
+
+    // تولید QR کد
+    document.addEventListener('DOMContentLoaded', function() {
+      // ایجاد نمونه QRCode
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: window.location.href,
+        width: 200,
+        height: 200,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+      });
+      
+      // اضافه کردن لوگو به وسط QR کد
+      setTimeout(function() {
+        var canvas = document.querySelector('#qrcode canvas');
+        var img = document.querySelector('#qrcode img');
+        
+        if (canvas || img) {
+          var ctx;
+          if (canvas) {
+            ctx = canvas.getContext('2d');
+          } else {
+            var tempCanvas = document.createElement('canvas');
+            tempCanvas.width = 200;
+            tempCanvas.height = 200;
+            ctx = tempCanvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, 200, 200);
+          }
+          
+          // رسم دایره سفید در وسط
+          ctx.fillStyle = "#ffffff";
+          ctx.beginPath();
+          ctx.arc(100, 100, 20, 0, 2 * Math.PI);
+          ctx.fill();
+          
+          // اگر از تصویر استفاده می‌شود، کانvas را جایگزین تصویر کنیم
+          if (img) {
+            img.src = tempCanvas.toDataURL('image/png');
+          }
+        }
+      }, 300);
+    });
+
+    // تابع دانلود QR کد
+    function downloadQRCode() {
+      const canvas = document.querySelector('#qrcode canvas');
+      const img = document.querySelector('#qrcode img');
+      
+      if (canvas || img) {
+        let imageData;
+        if (canvas) {
+          imageData = canvas.toDataURL('image/png');
+        } else {
+          imageData = img.src;
+        }
+        
+        const link = document.createElement('a');
+        link.href = imageData;
+        link.download = 'qrcode-haj-ebrahim-ahmadi.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        alert('لطفاً کمی صبر کنید تا QR کد تولید شود.');
+      }
+    }
   </script>
 </body>
 </html>
