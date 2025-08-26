@@ -18,9 +18,8 @@
     .gallery-item img {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       width: 100%;
-      height: auto;
-      aspect-ratio: 4/3;
-      object-fit: cover;
+      height: 250px;        /* ارتفاع ثابت برای دسکتاپ */
+      object-fit: cover;    /* حفظ نسبت تصاویر بدون کشیدگی */
     }
     .gallery-item img:hover {
       transform: scale(1.03);
@@ -68,6 +67,10 @@
       h2 {
         font-size: 1.8rem;
       }
+      /* این بخش اضافه شده برای اندازه تصاویر در موبایل */
+      .gallery-item img {
+        height: 180px;      /* ارتفاع کمتر برای موبایل */
+      }
     }
     @media (min-width: 641px) {
       .hamburger {
@@ -107,7 +110,7 @@
     <div class="container mx-auto px-4">
       <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">گالری تصاویر</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- تصاویر گالری -->
+        <!-- تصاویر گالری با ارتفاع ثابت -->
         <div class="gallery-item" data-gsap="slideUp">
           <img src="https://i.postimg.cc/X79yHLdT/image-1.jpg" alt="توضیح عکس" class="w-full rounded-lg">
         </div>
