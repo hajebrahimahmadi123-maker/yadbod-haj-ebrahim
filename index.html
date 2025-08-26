@@ -15,34 +15,57 @@
       font-family: 'IranNastaliq', sans-serif;
       font-size: 1.1rem;
     }
-    .gallery-item img {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      width: 100%;
-      height: 250px;        /* ارتفاع ثابت برای دسکتاپ */
-      object-fit: cover;    /* حفظ نسبت تصاویر بدون کشیدگی */
+
+    /* قاعده پایه برای همه تصاویر */
+    img {
+      max-width: 100%;
+      height: auto;
     }
+
+    /* گالری */
+    .gallery-item {
+      aspect-ratio: 3/2;     /* همه آیتم‌ها یک نسبت ثابت دارن */
+      overflow: hidden;      /* بیرون‌زدگی کراپ بشه */
+      border-radius: 0.75rem;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;     /* عکس بدون کشیدگی جا میشه */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
     .gallery-item img:hover {
       transform: scale(1.03);
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
     }
+
     .audio-player, .video-player {
       transition: all 0.3s ease;
     }
+
     .audio-player:hover, .video-player:hover {
       transform: translateY(-3px);
     }
+
     .header-bg {
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
     }
+
     .hero-section {
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://i.postimg.cc/Hs0tNXyP/d135a224-45bc-4b3b-a514-72675dd1da14.png') no-repeat center center/cover;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), 
+                  url('https://i.postimg.cc/Hs0tNXyP/d135a224-45bc-4b3b-a514-72675dd1da14.png') no-repeat center center/cover;
     }
+
     .nav-menu {
       display: flex;
     }
+
     .nav-menu.hidden {
       display: none;
     }
+
     @media (max-width: 640px) {
       .nav-menu {
         flex-direction: column;
@@ -67,11 +90,11 @@
       h2 {
         font-size: 1.8rem;
       }
-      /* این بخش اضافه شده برای اندازه تصاویر در موبایل */
-      .gallery-item img {
-        height: 150px;      /* ارتفاع کمتر برای موبایل */
+      .gallery-item {
+        aspect-ratio: 4/3; /* برای موبایل مربعی‌تر */
       }
     }
+
     @media (min-width: 641px) {
       .hamburger {
         display: none;
@@ -110,42 +133,42 @@
     <div class="container mx-auto px-4">
       <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">گالری تصاویر</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- تصاویر گالری با ارتفاع ثابت -->
+        <!-- تصاویر گالری -->
         <div class="gallery-item" data-gsap="slideUp">
-          <img src="https://i.postimg.cc/X79yHLdT/image-1.jpg" alt="توضیح عکس" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/X79yHLdT/image-1.jpg" alt="توضیح عکس">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.1">
-          <img src="https://i.postimg.cc/j2HdX8mc/image-2.jpg" alt="خاطره زیبا" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/j2HdX8mc/image-2.jpg" alt="خاطره زیبا">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.2">
-          <img src="https://i.postimg.cc/rpDVby7K/image-3.jpg" alt="خاطره به یاد ماندنی" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/rpDVby7K/image-3.jpg" alt="خاطره به یاد ماندنی">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.3">
-          <img src="https://i.postimg.cc/R02Sz5zG/image-4.jpg" alt="یادگاری زیبا" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/R02Sz5zG/image-4.jpg" alt="یادگاری زیبا">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.4">
-          <img src="https://i.postimg.cc/26vzkckY/image-6.jpg" alt="مراسم یادبود" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/26vzkckY/image-6.jpg" alt="مراسم یادبود">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.5">
-          <img src="https://i.postimg.cc/HWwpFhv4/image-8.jpg" alt="خاطرات شیرین" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/HWwpFhv4/image-8.jpg" alt="خاطرات شیرین">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.6">
-          <img src="https://i.postimg.cc/BbB4DjPw/image-7.jpg" alt="جمع خانوادگی" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/BbB4DjPw/image-7.jpg" alt="جمع خانوادگی">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.7">
-          <img src="https://i.postimg.cc/rwmM0FVQ/image-9.jpg" alt="لحظات خاص" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/rwmM0FVQ/image-9.jpg" alt="لحظات خاص">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.8">
-          <img src="https://i.postimg.cc/cLbZQy6Z/image-10.jpg" alt="یادبود ماندگار" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/cLbZQy6Z/image-10.jpg" alt="یادبود ماندگار">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="0.9">
-          <img src="https://i.postimg.cc/sXFrNYpN/image-11.jpg" alt="خاطره‌ای به یادماندنی" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/sXFrNYpN/image-11.jpg" alt="خاطره‌ای به یادماندنی">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="1.0">
-          <img src="https://i.postimg.cc/NFBwgQC8/image-12.jpg" alt="آخرین خاطره" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/NFBwgQC8/image-12.jpg" alt="آخرین خاطره">
         </div>
         <div class="gallery-item" data-gsap="slideUp" data-delay="1.1">
-          <img src="https://i.postimg.cc/K8RhcqfW/image-5.jpg" alt="مراسم یادبود" class="w-full rounded-lg">
+          <img src="https://i.postimg.cc/K8RhcqfW/image-5.jpg" alt="مراسم یادبود">
         </div>
       </div>
     </div>
@@ -183,7 +206,7 @@
           <h3 class="text-xl sm:text-2xl text-white mb-4">مراسم یادبود</h3>
           <div class="aspect-w-16 aspect-h-9">
             <video controls class="w-full rounded-lg">
-              <source src="https://drive.google.com/uc?export=download&id=1MKOEG0j4W_NOv1bhipZLi3C6djr8g_Ii" type="video/mp4">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
               مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
             </video>
           </div>
@@ -280,6 +303,3 @@
   </script>
 </body>
 </html>
-
-
-
