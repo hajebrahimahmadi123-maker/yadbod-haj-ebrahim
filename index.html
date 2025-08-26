@@ -22,6 +22,14 @@
       height: auto;
     }
 
+    /* Container اصلی */
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+    }
+
     /* گالری */
     .gallery-item {
       aspect-ratio: 3/2;     /* نسبت ثابت برای دسکتاپ */
@@ -31,8 +39,8 @@
 
     .gallery-item img {
       width: 100%;
-      height: auto;          /* به‌جای height: 100% */
-      object-fit: contain;   /* به‌جای cover */
+      height: 100%;
+      object-fit: cover;    /* پر کردن فضا با برش */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -91,11 +99,10 @@
         font-size: 1.8rem;
       }
       .gallery-item {
-        aspect-ratio: unset; /* حذف نسبت ثابت تو موبایل */
-        height: auto;        /* ارتفاع خودکار */
+        aspect-ratio: 4/3; /* نسبت 4:3 برای موبایل */
       }
       .gallery-item img {
-        object-fit: cover;   /* برای پر کردن فضا تو موبایل */
+        object-fit: cover; /* پر کردن فضا تو موبایل */
       }
     }
 
@@ -307,4 +314,3 @@
   </script>
 </body>
 </html>
-
