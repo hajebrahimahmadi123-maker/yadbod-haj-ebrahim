@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>یادبود حاج ابراهیم احمدی</title>
+  <title>یادبود علیرضا</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -24,7 +24,7 @@
 
     /* گالری */
     .gallery-item {
-      aspect-ratio: 3/2;     /* همه آیتم‌ها یک نسبت ثابت دارن */
+      aspect-ratio: 3/2;     /* نسبت ثابت برای دسکتاپ */
       overflow: hidden;      /* بیرون‌زدگی کراپ بشه */
       border-radius: 0.75rem;
     }
@@ -91,7 +91,11 @@
         font-size: 1.8rem;
       }
       .gallery-item {
-        aspect-ratio: 4/3; /* برای موبایل مربعی‌تر */
+        aspect-ratio: unset; /* حذف نسبت ثابت تو موبایل */
+        height: auto;        /* ارتفاع خودکار */
+      }
+      .gallery-item img {
+        object-fit: cover;   /* برای پر کردن فضا تو موبایل */
       }
     }
 
