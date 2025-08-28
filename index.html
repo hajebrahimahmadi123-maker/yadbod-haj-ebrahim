@@ -70,10 +70,6 @@
       display: flex;
     }
 
-    .nav-menu.hidden {
-      display: none;
-    }
-
     /* استایل‌های اضافی برای پلیر ویدیو */
     .video-container {
       position: relative;
@@ -109,6 +105,14 @@
       opacity: 1;
     }
 
+    /* بهبود استایل پلیر صوتی برای موبایل */
+    audio {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    /* بهبود استایل برای موبایل */
     @media (max-width: 640px) {
       .nav-menu {
         flex-direction: column;
@@ -119,25 +123,46 @@
         width: 100%;
         padding: 1rem;
         z-index: 100;
+        display: none;
       }
+      
+      .nav-menu.active {
+        display: flex;
+      }
+      
       .nav-menu a {
         margin: 0.5rem 0;
         text-align: center;
       }
+      
       .hamburger {
         display: block;
       }
+      
       .hero-section {
         height: 50vh;
       }
+      
       h2 {
         font-size: 1.8rem;
       }
+      
       .gallery-item {
         aspect-ratio: 4/3; /* نسبت 4:3 برای موبایل */
       }
+      
       .gallery-item img {
         object-fit: cover; /* پر کردن فضا تو موبایل */
+      }
+      
+      .audio-player {
+        padding: 1rem;
+      }
+      
+      /* بهبود فاصله‌ها در موبایل */
+      .container.mx-auto.px-4 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
       }
     }
 
@@ -145,8 +170,13 @@
       .hamburger {
         display: none;
       }
+      
       h2 {
         font-size: 2.5rem;
+      }
+      
+      .nav-menu {
+        display: flex;
       }
     }
   </style>
@@ -157,7 +187,7 @@
     <div class="container mx-auto flex justify-between items-center relative">
       <h1 class="text-2xl sm:text-3xl font-bold text-white">یادبود حاج ابراهیم احمدی</h1>
       <button class="hamburger text-white text-2xl focus:outline-none" onclick="toggleMenu()">☰</button>
-      <nav class="nav-menu hidden sm:flex">
+      <nav class="nav-menu" id="navMenu">
         <a href="#gallery" class="text-gray-300 hover:text-white mx-4 text-lg">گالری تصاویر</a>
         <a href="#audio" class="text-gray-300 hover:text-white mx-4 text-lg">صدا</a>
         <a href="#video" class="text-gray-300 hover:text-white mx-4 text-lg">ویدیو</a>
@@ -226,16 +256,16 @@
       <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">صوت‌های یادبود</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="audio-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn">
-          <h3 class="text-xl sm:text-2xl text-white mb-4">مداحی مراسم</h3>
+          <h3 class="text-xl sm:text-2xl text-white mb-4">لاله لای لای عزیزم - مرتضی</h3>
           <audio controls class="w-full">
             <source src="https://ia600908.us.archive.org/14/items/morteza-bab-lalay-lay-lay-azizam-320www.-next-1.ir/MortezaBab-LalayLayLayAzizam-320%28www.Next1.ir%29.mp3" type="audio/mpeg">
             مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
           </audio>
         </div>
         <div class="audio-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn" data-delay="0.3">
-          <h3 class="text-xl sm:text-2xl text-white mb-4">سخنرانی یادبود</h3>
+          <h3 class="text-xl sm:text-2xl text-white mb-4">یازده ماه بیست و نه روزو چند هزار ساعت - علیرضا قربانی</h3>
           <audio controls class="w-full">
-            <source src="https://ia903208.us.archive.org/4/items/alireza-20-ghorbani-20-20-yazdah-20-maho-20-bisto-20-noh-20-rouzo-20-chand-20-hezar-20-saat-20-320/Alireza%2520Ghorbani%2520-%2520Yazdah%2520Maho%2520Bisto%2520Noh%2520Rouzo%2520Chand%2520Hezar%2520Saat%2520%28320%29.mp3" type="audio/mpeg">
+            <source src="https://ia903208.us.archive.org/4/items/alireza-20-ghorbani-20-20-yazdah-20-maho-20-bisto-20-noh-20-rouzo-20-chand-20-hezar-20-saat-20-320/Alireza%20Ghorbani%20-%20Yazdah%20Maho%20Bisto%20Noh%20Rouzo%20Chand%20Hezar%20Saat%20(320).mp3" type="audio/mpeg">
             مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
           </audio>
         </div>
@@ -275,34 +305,9 @@
             </video>
           </div>
         </div>
-
-      <!-- ویدیوی دوم با پوستر مستقل -->
-<!--
-<div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-  <h3 class="text-xl sm:text-2xl text-white mb-4">خاطرات حاج ابراهیم</h3>
-  <div class="aspect-w-16 aspect-h-9 relative video-container">
-    <div id="video-poster-2" class="video-poster absolute inset-0 w-full h-full z-10">
-      <img src="https://i.postimg.cc/8c1xdYFn/Chat-GPT-Image-Aug-28-2025-11-21-32-AM.png" 
-           alt="پوستر ویدیو" 
-           class="w-full h-full object-cover rounded-lg">
-      <div class="absolute inset-0 flex items-center justify-center">
-        <div class="bg-black bg-opacity-50 rounded-full p-3 sm:p-4 play-button">
-          <svg class="w-8 h-8 sm:w-12 sm:h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
-          </svg>
-        </div>
       </div>
     </div>
-    
-    <video class="w-full rounded-lg video-element opacity-0" 
-           controls
-           id="video-2">
-      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-      مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-    </video>
-  </div>
-</div>
--->
+  </section>
 
   <!-- Memories Section -->
   <section id="memories" class="py-16 bg-black">
@@ -352,7 +357,7 @@
       });
     });
 
-    // Audio and Memories Animation (ویدیوها حذف شدند)
+    // Audio and Memories Animation
     document.querySelectorAll("[data-gsap='fadeIn']").forEach((item) => {
       // فقط المان‌هایی که ویدیو پلیر نیستند را انیمیت کن
       if (!item.closest('.video-container')) {
@@ -371,15 +376,16 @@
 
     // Hamburger Menu Toggle
     function toggleMenu() {
-      const menu = document.querySelector('.nav-menu');
-      menu.classList.toggle('hidden');
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('active');
     }
 
     // بستن منو هنگام کلیک روی لینک‌ها در حالت موبایل
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth < 641) {
-          toggleMenu();
+          const menu = document.getElementById('navMenu');
+          menu.classList.remove('active');
         }
       });
     });
@@ -418,7 +424,3 @@
   </script>
 </body>
 </html>
-
-
-
-
