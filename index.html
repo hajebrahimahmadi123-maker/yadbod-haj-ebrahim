@@ -74,6 +74,41 @@
       display: none;
     }
 
+    /* استایل‌های اضافی برای پلیر ویدیو */
+    .video-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-poster {
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+
+    .video-poster:hover {
+      opacity: 0.9;
+    }
+
+    .video-poster:hover .play-button {
+      transform: scale(1.1);
+    }
+
+    .play-button {
+      transition: transform 0.3s ease;
+    }
+
+    .video-element {
+      transition: opacity 0.3s ease;
+    }
+
+    .video-element.opacity-0 {
+      opacity: 0;
+    }
+
+    .video-element.opacity-100 {
+      opacity: 1;
+    }
+
     @media (max-width: 640px) {
       .nav-menu {
         flex-direction: column;
@@ -213,19 +248,56 @@
     <div class="container mx-auto px-4">
       <h2 class="text-2xl sm:text-3xl font-bold text-center text-white mb-8">ویدیوهای یادبود</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="video-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn">
-  <h3 class="text-xl sm:text-2xl text-white mb-4">مراسم یادبود</h3>
-  <div class="aspect-w-16 aspect-h-9">
-    <video controls class="w-full rounded-lg" poster="https://i.postimg.cc/8c1xdYFn/Chat-GPT-Image-Aug-28-2025-11-21-32-AM.png">
-      <source src="https://ia601008.us.archive.org/24/items/whats-app-video-2025-08-27-at-13.55.54-5d-9248b-5/WhatsApp%20Video%202025-08-27%20at%2013.55.54_5d9248b5.mp4" type="video/mp4">
-      مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-    </video>
-  </div>
-</div>
-        <div class="video-player bg-gray-800 p-6 rounded-lg shadow-lg" data-gsap="fadeIn" data-delay="0.3">
+        <!-- ویدیوی اول با پوستر مستقل -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl sm:text-2xl text-white mb-4">مراسم یادبود</h3>
+          <div class="aspect-w-16 aspect-h-9 relative video-container">
+            <!-- پوستر ویدیو -->
+            <div id="video-poster-1" class="video-poster absolute inset-0 w-full h-full z-10">
+              <img src="https://i.postimg.cc/8c1xdYFn/Chat-GPT-Image-Aug-28-2025-11-21-32-AM.png" 
+                   alt="پوستر ویدیو" 
+                   class="w-full h-full object-cover rounded-lg">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-black bg-opacity-50 rounded-full p-3 sm:p-4 play-button">
+                  <svg class="w-8 h-8 sm:w-12 sm:h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            
+            <!-- ویدیو (در ابتدا مخفی) -->
+            <video class="w-full rounded-lg video-element opacity-0" 
+                   controls
+                   id="video-1">
+              <source src="https://ia601008.us.archive.org/24/items/whats-app-video-2025-08-27-at-13.55.54-5d-9248b-5/WhatsApp%20Video%202025-08-27%20at%2013.55.54_5d9248b5.mp4" type="video/mp4">
+              مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+            </video>
+          </div>
+        </div>
+
+        <!-- ویدیوی دوم با پوستر مستقل -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
           <h3 class="text-xl sm:text-2xl text-white mb-4">خاطرات حاج ابراهیم</h3>
-          <div class="aspect-w-16 aspect-h-9">
-            <video controls class="w-full rounded-lg">
+          <div class="aspect-w-16 aspect-h-9 relative video-container">
+            <!-- پوستر ویدیو -->
+            <div id="video-poster-2" class="video-poster absolute inset-0 w-full h-full z-10">
+              <img src="https://i.postimg.cc/8c1xdYFn/Chat-GPT-Image-Aug-28-2025-11-21-32-AM.png" 
+                   alt="پوستر ویدیو" 
+                   class="w-full h-full object-cover rounded-lg">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-black bg-opacity-50 rounded-full p-3 sm:p-4 play-button">
+                  <svg class="w-8 h-8 sm:w-12 sm:h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            
+            <!-- ویدیو (در ابتدا مخفی) -->
+            <video class="w-full rounded-lg video-element opacity-0" 
+                   controls
+                   id="video-2">
               <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
               مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
             </video>
@@ -283,18 +355,21 @@
       });
     });
 
-    // Audio, Video, and Memories Animation
+    // Audio and Memories Animation (ویدیوها حذف شدند)
     document.querySelectorAll("[data-gsap='fadeIn']").forEach((item) => {
-      gsap.from(item, {
-        opacity: 0,
-        scale: 0.9,
-        duration: 1,
-        delay: item.dataset.delay || 0,
-        scrollTrigger: {
-          trigger: item,
-          start: "top 85%"
-        }
-      });
+      // فقط المان‌هایی که ویدیو پلیر نیستند را انیمیت کن
+      if (!item.closest('.video-container')) {
+        gsap.from(item, {
+          opacity: 0,
+          scale: 0.9,
+          duration: 1,
+          delay: item.dataset.delay || 0,
+          scrollTrigger: {
+            trigger: item,
+            start: "top 85%"
+          }
+        });
+      }
     });
 
     // Hamburger Menu Toggle
@@ -311,8 +386,38 @@
         }
       });
     });
+
+    // مدیریت پخش ویدیوها
+    document.querySelectorAll('.video-poster').forEach(poster => {
+      poster.addEventListener('click', function() {
+        const container = this.closest('.video-container');
+        const videoId = this.id.replace('video-poster-', 'video-');
+        const video = document.getElementById(videoId);
+        
+        // مخفی کردن پوستر
+        this.style.display = 'none';
+        
+        // نمایش ویدیو
+        video.classList.remove('opacity-0');
+        video.classList.add('opacity-100');
+        
+        // پخش ویدیو
+        video.play();
+      });
+    });
+
+    // مخفی کردن پوستر وقتی ویدیو شروع به پخش می‌کند
+    document.querySelectorAll('video').forEach(video => {
+      video.addEventListener('play', function() {
+        const container = this.closest('.video-container');
+        const videoId = this.id.replace('video-', 'video-poster-');
+        const poster = document.getElementById(videoId);
+        
+        if (poster) {
+          poster.style.display = 'none';
+        }
+      });
+    });
   </script>
 </body>
 </html>
-
-
